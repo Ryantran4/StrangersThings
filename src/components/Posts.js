@@ -4,6 +4,7 @@ import { Create } from './'
 
 const Posts = (props) => {
     const [posts, setPosts] = useState([]);
+    const {token} = props;
     // const {posts} = props
     // const {setPosts} = props
 
@@ -24,7 +25,7 @@ const Posts = (props) => {
         <h1>
             Posts
         </h1>
-        <Create posts={posts} setPosts={setPosts} />
+        <Create posts={posts} setPosts={setPosts} token={token} />
         {
         posts.map(post=> <div key={post._id}>
             <h3>{post.title}</h3>

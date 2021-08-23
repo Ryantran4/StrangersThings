@@ -21,11 +21,14 @@ const App = () => {
     const [token,setToken] = useState('');
     console.log('token: ' , token);
     const [posts, setPosts] = useState([]);
+    const [user, setUser] = useState('');
+
+
     return (
         <BrowserRouter>
             <div className="app">
                 {<Title />}
-                {<Routing setToken={setToken}token={token}/>}   
+                {<Routing setToken={setToken} token={token}/>}   
             </div>
         </BrowserRouter>
     )

@@ -2,12 +2,18 @@ const { REACT_APP_BASE_URL} = process.env;
 
 export const callApi = async ({url, method, token, body}) => {
     try {
+        console.log('>>>>>')
+        console.log(url);
+        console.log(method);
+        console.log(token);
+        console.log(body);
+        console.log('>>>>>')
        const options = {
-           method: method ? method.toUpperCase() : 'GET',
+           method: method.toUpperCase(),
            headers: {
-               'Content-Type': 'application.json',
+               'Content-Type': 'application/json',
            },
-           body: JSON.stringify(body)
+           body:JSON.stringify(body)
        };
        if (token) options.headers['Authorization'] = `Bearer ${(token)}`;
 

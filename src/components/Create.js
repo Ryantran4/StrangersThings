@@ -4,6 +4,7 @@ import { callApi } from '../CallApi';
 const Create = ({token,setPosts}) => {
     const [title,setTitle] = useState('');
     const [description, setDescription] = useState('');
+    const [price,setPrice] = useState('');
 
 
     const handleAdd = async (event) => {
@@ -11,21 +12,22 @@ const Create = ({token,setPosts}) => {
         console.log({title, description});
 
         const postResp = await callApi({
-            url: '/Posts',
+            url: '/posts',
             method: 'POST',
-            token,
+            token:token,
             body: {
-                posts: {
-                    title,
-                    description
+                post: {
+                    title:`${title}`,
+                    description:`${description}`,
+                    price:`${price}`
                 }
             }
         });
 
         console.log('postResp: ', postResp);
         //adding data
-        const postsResp = await callApi({url: '/Posts', token});
-        setPosts(postsResp.data.posts)
+        // const postsResp = await callApi({url: '/posts', token});
+        // setPosts(postsResp.data.posts)
     }
 
     return <>
@@ -33,10 +35,12 @@ const Create = ({token,setPosts}) => {
         List Item
     </h3>
     <form onSubmit={handleAdd}>
-        <input type ="text" placeholder="description" value={title} onChange=
+        <input type ="text" placeholder="title" value={title} onChange=
         {(ev) => setTitle(ev.target.value)}></input>
         <input type="text" placeholder="description" value=
         {description} onChange={(ev) => setDescription(ev.target.value)}></input>
+        <input type="text" placeholder="price" value=
+        {price} onChange={(ev) => setPrice(ev.target.value)}></input>
         <button type="submit">Add Listing</button>
         </form>
         </>

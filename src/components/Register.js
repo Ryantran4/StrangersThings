@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import { useParams, useHistory } from 'react-router';
 
@@ -22,7 +23,7 @@ const Register = ({setToken,token}) => {
         <form onSubmit={async (event) => {
             event.preventDefault();
             // Sending fetch request, retrieving token
-            const fetchUrl = `${REACT_APP_BASE_URL}users/${params.method}`
+            const fetchUrl = `${REACT_APP_BASE_URL}/users/${params.method}`
             console.log('fetchUrl: ', fetchUrl);
 
             const resp = await fetch(fetchUrl,{
@@ -51,6 +52,7 @@ const Register = ({setToken,token}) => {
         console.log('respOBJ: ' ,respObj);
         if(respObj.data) {
             setToken(respObj.data.token);
+            console.log(respObj.data)
             if (respObj.data.token) {
               history.push('/Home');
             }

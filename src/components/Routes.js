@@ -10,16 +10,15 @@ const Routing = (props) => {
     const {token} = props
     const params = useParams();
     const [posts,setPosts] = useState([]);
-    // const {posts} = props
-    // const {setPosts} = props
+
     return (
         <>
         <Route exact path='/Home'>
             <Home />
         </Route>
         <Route exact path='/Posts'>
-            <Create token={token} setPosts={setPosts}/>
-            <Posts />
+            {/* <Create token={token} setPosts={setPosts}/> */}
+            <Posts token={token}/>
         </Route>
         {/* <Route path='/account/:method'>
             <Login setToken={setToken}/>
@@ -27,7 +26,7 @@ const Routing = (props) => {
         <Route exact path='/account/:method'>
             {
             params.method==='login' ? 
-            <Login setToken={setToken}/> :
+            <Login setToken={setToken} /> :
             <Register setToken={setToken} token={token}/> 
             }   
    
