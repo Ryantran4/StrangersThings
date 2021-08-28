@@ -7,17 +7,18 @@ import {Posts,Login,Home,Register,Create} from './';
 
 const Routing = (props) => {
     const {setToken} = props
-    const {token} = props
+    const token = props
     const params = useParams();
     const [posts,setPosts] = useState([]);
-
+    //console.log(token);
+    //console.log('hi');
     return (
         <>
         <Route exact path='/Home'>
             <Home />
         </Route>
         <Route exact path='/Posts'>
-            {/* <Create token={token} setPosts={setPosts}/> */}
+            {/* <Create posts={posts} setPosts={setPosts} token={token} /> */}
             <Posts token={token}/>
         </Route>
         {/* <Route path='/account/:method'>

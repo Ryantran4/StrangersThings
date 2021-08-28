@@ -38,16 +38,6 @@ const Register = ({setToken,token}) => {
                 }
             })
         });
-                // const loginResp = await callApi({
-                //     url: `/users/${params.method}`,
-                //     method: 'POST',
-                //     body: {
-                //         user: {
-                //             username,
-                //             password
-                //         }
-                //     }
-                // })
         const respObj = await resp.json();
         console.log('respOBJ: ' ,respObj);
         if(respObj.data) {
@@ -57,14 +47,7 @@ const Register = ({setToken,token}) => {
               history.push('/Home');
             }
         }
-        //         if(loginResp.data) {
-        //             const userResp = await callApi({url: '/users/me', token: loginResp.data.token});
-        //             setToken(loginResp.data.token);
-        //             setUsername(loginResp.data.user);
-        //             if (loginResp.data.guest) {
-        //                 history.push('/src/components/Home.js')
-        //             }
-        //         }
+
         }}>
             <input type="text" placeholder="username" value={username}
             onChange={(event)=> setUsername(event.target.value)}></input>

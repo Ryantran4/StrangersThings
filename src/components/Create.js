@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { callApi } from '../CallApi';
 
-const Create = ({token,setPosts}) => {
+const Create = ({setPosts,token}) => {
     const [title,setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price,setPrice] = useState('');
+    // const {token} = props;
+    // const [posts, setPosts] = useState([]);
+    // console.log({token})
 
 
     const handleAdd = async (event) => {
@@ -14,7 +17,11 @@ const Create = ({token,setPosts}) => {
         const postResp = await callApi({
             url: '/posts',
             method: 'POST',
-            token:token,
+            // headers: {
+            //     'Content-Type': 'application/json',
+            //     'Authorization': 'Bearer TOKEN_STRING_HERE'
+            // }
+            token:token.token,
             body: {
                 post: {
                     title:`${title}`,
