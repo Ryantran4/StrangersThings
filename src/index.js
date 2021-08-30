@@ -7,11 +7,6 @@ const { REACT_APP_BASE_URL } = process.env;
 const baseURL = REACT_APP_BASE_URL;
 
 
-
-//Pass token in at the highest level
-// login needs setToken but not the token
-
-// Figure out why I cant import, Im thnking its because the links should be rendered in another file
 import {
     Title,
     Routing

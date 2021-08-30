@@ -1,10 +1,6 @@
-
 import React, {useState} from 'react';
 import { useParams, useHistory } from 'react-router';
 
-/* Notes
-Would like to usehISTORY and push from register to login page, then login to home
-*/
 
 import { callApi } from '../CallApi';
 
@@ -22,9 +18,7 @@ const Register = ({setToken,token}) => {
         <h1>{params.method}</h1>
         <form onSubmit={async (event) => {
             event.preventDefault();
-            // Sending fetch request, retrieving token
             const fetchUrl = `${REACT_APP_BASE_URL}/users/${params.method}`
-            console.log('fetchUrl: ', fetchUrl);
 
             const resp = await fetch(fetchUrl,{
             method: "POST",
@@ -39,7 +33,6 @@ const Register = ({setToken,token}) => {
             })
         });
         const respObj = await resp.json();
-        console.log('respOBJ: ' ,respObj);
         if(respObj.data) {
             setToken(respObj.data.token);
             console.log(respObj.data)

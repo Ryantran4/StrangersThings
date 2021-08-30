@@ -5,10 +5,6 @@ const Create = ({setPosts,token}) => {
     const [title,setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price,setPrice] = useState('');
-    // const {token} = props;
-    // const [posts, setPosts] = useState([]);
-    // console.log({token})
-
 
     const handleAdd = async (event) => {
         event.preventDefault();
@@ -17,10 +13,6 @@ const Create = ({setPosts,token}) => {
         const postResp = await callApi({
             url: '/posts',
             method: 'POST',
-            // headers: {
-            //     'Content-Type': 'application/json',
-            //     'Authorization': 'Bearer TOKEN_STRING_HERE'
-            // }
             token:token.token,
             body: {
                 post: {
@@ -31,10 +23,6 @@ const Create = ({setPosts,token}) => {
             }
         });
 
-        console.log('postResp: ', postResp);
-        //adding data
-        // const postsResp = await callApi({url: '/posts', token});
-        // setPosts(postsResp.data.posts)
     }
 
     return <>

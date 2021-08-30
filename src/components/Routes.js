@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Route, useParams } from 'react-router';
 
-import {Posts,Login,Home,Register,Create} from './';
+import {Posts,Login,Home,Register,Create,Messages} from './';
 
 
 
@@ -32,9 +32,9 @@ const Routing = (props) => {
             }   
    
         </Route>
-        {/* <Route exact path='/Create'>
-            <Create  posts={posts} setPosts={setPosts}/>
-        </Route> */}
+        <Route exact path='/Profile'>
+            <Messages token={token}/>
+        </Route>
         </>
     )
 }

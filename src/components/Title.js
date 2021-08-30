@@ -38,6 +38,7 @@ const Title = (props) => {
                 {/* change login */}
                 <Link to="/account/Login" style={{color: '#ff1515'}}>Login</Link>
                 <Link to="/account/Register" style={{color: '#ff1515'}}>Register</Link>
+                <Link to="Profile" style={{color: '#ff1515'}}>Profile</Link>
             </div>
         </div>
     )

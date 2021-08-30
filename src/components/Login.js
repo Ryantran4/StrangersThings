@@ -3,23 +3,20 @@ import { useParams, useHistory } from 'react-router';
 
 const { REACT_APP_BASE_URL } = process.env;
 
-const Login = ({setToken,token}) => {
+const Login = ({setToken,token,props}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const params = useParams();
     const history = useHistory;
     console.log('params: ', params);
+    console.log('setUser : ', setUser);
 
 
     return<>
         <h1>{params.method}</h1>
         <form onSubmit={async (event) => {
             event.preventDefault();
-            // Sending fetch request, retrieving token
             const fetchUrl = `${REACT_APP_BASE_URL}/user/${params.method}`
-            console.log('fetchUrl: ', fetchUrl);
-
-            // const query = `${REACT_APP_BASE_URL}/user/${params.method}`;xs
 
 
             const resp = await fetch(`${REACT_APP_BASE_URL}/user/${params.method}`,{
@@ -35,7 +32,6 @@ const Login = ({setToken,token}) => {
             })
         });
         const respObj = await resp.json();
-        console.log('respOBJ: ' ,respObj);
         if(respObj.data) {
             setToken(respObj.data.token);
             if (respObj.data.token) {
